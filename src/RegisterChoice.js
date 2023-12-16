@@ -4,7 +4,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import logo1 from "./components/images/logo1.png";
 import { Grid } from "@mui/material";
 import Button from "@mui/material/Button";
-import registerChoice from "./components/images/register_choice.png";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 function RegisterChoice() {
   const theme = createTheme({
@@ -30,16 +30,7 @@ function RegisterChoice() {
               height: "150px",
             }}
           />
-          <img
-            src={registerChoice}
-            alt="Header Image"
-            style={{
-              width: "90%",
-              height: "90%", // Set height to 100% to fill the container
-              objectFit: "cover", // Maintain aspect ratio and cover the whole container
-              marginTop: "-180px",
-            }}
-          />
+          {/* ... rest of your code ... */}
         </Grid>
         <Grid item xs={4}>
           {/* Content for the second column */}
@@ -74,38 +65,43 @@ function RegisterChoice() {
             >
               as
             </h3>
-            <Button
-              variant="contained"
-              style={{
-                backgroundColor: "#E8B70E",
-                color: "#8A3539",
-                fontWeight: "bold",
-                fontFamily: "Inter, sans-serif",
-                height: "80px",
-                padding: "20px",
-                width: "550px",
-                fontSize: "30px",
-                marginTop: "50px",
-              }}
-            >
-              Student
-            </Button>
-            <Button
-              variant="contained"
-              style={{
-                backgroundColor: "#E8B70E",
-                color: "#8A3539",
-                fontWeight: "bold",
-                fontFamily: "Inter, sans-serif",
-                height: "80px",
-                padding: "20px",
-                width: "550px",
-                fontSize: "30px",
-                marginTop: "50px",
-              }}
-            >
-              Teacher
-            </Button>
+            {/* Use Link from react-router-dom to navigate */}
+            <Link to="/student-register">
+              <Button
+                variant="contained"
+                style={{
+                  backgroundColor: "#E8B70E",
+                  color: "#8A3539",
+                  fontWeight: "bold",
+                  fontFamily: "Inter, sans-serif",
+                  height: "80px",
+                  padding: "20px",
+                  width: "550px",
+                  fontSize: "30px",
+                  marginTop: "50px",
+                }}
+              >
+                Student
+              </Button>
+            </Link>
+            <Link to="/teacher-register">
+              <Button
+                variant="contained"
+                style={{
+                  backgroundColor: "#E8B70E",
+                  color: "#8A3539",
+                  fontWeight: "bold",
+                  fontFamily: "Inter, sans-serif",
+                  height: "80px",
+                  padding: "20px",
+                  width: "550px",
+                  fontSize: "30px",
+                  marginTop: "50px",
+                }}
+              >
+                Teacher
+              </Button>
+            </Link>
             <h4>
               <span style={{ color: "#E8D9D9" }}>Already have an account?</span>
               <span style={{ color: "#E8B70E" }}> Login</span>
@@ -118,3 +114,4 @@ function RegisterChoice() {
 }
 
 export default RegisterChoice;
+

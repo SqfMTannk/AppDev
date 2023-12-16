@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import logo1 from "./components/images/logo1.png";
 import login_pic from "./components/images/Login_pic.png";
-import { Grid } from "@mui/material";
 import facebook_logo from "./components/images/Facebook_Logo_Primary.png";
 import gmail_logo from "./components/images/Gmail_Logo.png";
+import { Grid, Button } from "@mui/material";
 import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
   const theme = createTheme({
@@ -18,11 +18,25 @@ function Login() {
     },
   });
 
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleLogin = () => {
+    // Perform login logic if needed
+
+    // For example, redirect to student dashboard
+    navigate("/studentdashboard");
+  };
+
+  const handleOkClick = () => {
+    setErrorMessage("");
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-
-      {/* Set minHeight to 100vh for the container to fill the whole viewport */}
       <Grid container spacing={2} style={{ minHeight: "100vh" }}>
         <Grid item xs={8}>
           <img
@@ -38,14 +52,13 @@ function Login() {
             alt="Header Image"
             style={{
               width: "100%",
-              height: "100%", // Set height to 100% to fill the container
-              objectFit: "cover", // Maintain aspect ratio and cover the whole container
+              height: "100%",
+              objectFit: "cover",
               marginTop: "-180px",
             }}
           />
         </Grid>
         <Grid item xs={4}>
-          {/* Content for the second column */}
           <div
             style={{
               backgroundColor: "#8A3539",
@@ -82,28 +95,25 @@ function Login() {
               Connect with
             </h3>
             <Grid container spacing={2}>
-              {/* First column */}
               <Grid item xs={6}>
                 <img
                   src={facebook_logo}
                   alt="Header Image"
                   style={{
                     width: "20%",
-                    height: "auto", // Set height to 100% to fill the container
+                    height: "auto",
                     marginLeft: "220px",
                     marginTop: "-5px",
                   }}
                 />
               </Grid>
-
-              {/* Second column */}
               <Grid item xs={6}>
                 <img
                   src={gmail_logo}
                   alt="Header Image"
                   style={{
                     width: "20%",
-                    height: "auto", // Set height to 100% to fill the container
+                    height: "auto",
                     marginTop: "5px",
                     marginRight: "220px",
                   }}
@@ -148,6 +158,7 @@ function Login() {
                 backgroundColor: "white",
                 width: "550px",
               }}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <h1
               style={{
@@ -166,6 +177,8 @@ function Login() {
                 backgroundColor: "white",
                 width: "550px",
               }}
+              type="password"
+              onChange={(e) => setPassword(e.target.value)}
             />
             <p
               style={{
@@ -179,6 +192,7 @@ function Login() {
             </p>
             <Button
               variant="contained"
+              onClick={handleLogin}
               style={{
                 backgroundColor: "#E8B70E",
                 color: "#8A3539",
@@ -192,6 +206,27 @@ function Login() {
             >
               Login
             </Button>
+            {errorMessage && (
+              <div>
+                <p style={{ color: "red", marginLeft: "25px", marginBottom: "10px" }}>{errorMessage}</p>
+                <Button
+                  variant="contained"
+                  onClick={handleOkClick}
+                  style={{
+                    backgroundColor: "#E8B70E",
+                    color: "#8A3539",
+                    fontWeight: "bold",
+                    fontFamily: "Inter, sans-serif",
+                    height: "40px",
+                    padding: "10px",
+                    width: "550px",
+                    fontSize: "20px",
+                  }}
+                >
+                  Ok
+                </Button>
+              </div>
+            )}
             <h4>
               <span style={{ color: "#E8D9D9" }}>Don't have an account?</span>
               <span style={{ color: "#E8B70E" }}> Register today</span>
@@ -204,3 +239,6 @@ function Login() {
 }
 
 export default Login;
+
+
+
