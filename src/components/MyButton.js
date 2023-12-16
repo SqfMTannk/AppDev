@@ -1,7 +1,8 @@
+// MyButton.js
 import React from "react";
 import Button from "@mui/material/Button";
 
-function MyButton({ buttonText, size }) {
+function MyButton({ buttonText, size, onClick }) {
   const buttonStyle = {
     backgroundColor: "#8A3539",
     color: "#E8B70E",
@@ -13,10 +14,12 @@ function MyButton({ buttonText, size }) {
   };
 
   return (
-    <Button variant="contained" style={buttonStyle} size={size}>
+    <Button variant="contained" style={buttonStyle} size={size} onClick={onClick}>
       {buttonText}
     </Button>
   );
 }
 
 export default MyButton;
+
+

@@ -1,0 +1,78 @@
+/* Event.css */
+
+.event-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.event-content {
+  text-align: center;
+  background-color: rgb(128, 0, 0);
+}
+
+.event-content > h6 {
+  color: #fff; /* Adjust the color as needed */
+  font-size: 18px; /* Adjust the font size as needed */
+  font-weight: bold; /* Adjust the font weight as needed */
+  margin-top: 10px; /* Adjust the margin as needed */
+}
+
+.event-content > h4 {
+  color: #fff; /* Adjust the color as needed */
+  font-size: 18px; /* Adjust the font size as needed */
+  font-weight: bold; /* Adjust the font weight as needed */
+  margin-top: 10px; /* Adjust the margin as needed */
+}
+
+.carousel-container {
+  width: 70%; /* Adjust the overall width of the carousel container */
+  max-width: 1200px;
+  overflow: hidden;
+  margin: auto;
+  border: 2px solid rgb(128, 0, 0);
+}
+
+.slick-slide {
+  padding: 0 15px; /* Adjust the padding between slides as needed */
+  transition: transform 0.5s;
+  box-sizing: border-box; /* Add this line to include padding in the element's total width */
+}
+
+/* Event.css */
+
+.custom-card {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 0 auto;
+  background-color: rgb(128, 0, 0);
+}
+
+.event-image {
+  width: 100%;
+  height: 150px; /* Set the fixed height for the image container */
+  overflow: hidden;
+  position: relative;
+  align-self: center;
+}
+
+.event-image img {
+  width: 100%;
+  height: 100%; /* Make the image fill the container */
+  object-fit: cover;
+}
+
+.slick-slide {
+  transform: rotateY(30deg); /* Default rotation for all slides */
+}
+
+.slick-center {
+  transform: rotateY(0deg); /* Rotation for the centered/middle slide */
+}
+
+
